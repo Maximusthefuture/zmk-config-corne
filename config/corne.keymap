@@ -42,6 +42,11 @@
             bindings = <&kp PRINTSCREEN>;
             key-positions = <11 23 35>;
         };
+
+        clearallbluetooth {
+            bindings = <&bt BT_CLR_ALL>;
+            key-positions = <15 16 17 18 19 20>;
+        };
     };
 
     behaviors {
