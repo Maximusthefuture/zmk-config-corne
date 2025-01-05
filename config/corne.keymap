@@ -39,8 +39,8 @@
         };
 
         printscreen {
-            bindings = <&kp C_AC_PRINT>;
-            key-positions = <11 23 35>;
+            bindings = <&kp PSCRN>;
+            key-positions = <11 35 23>;
         };
 
         clearallbluetooth {
@@ -51,6 +51,16 @@
         bluetooth-4 {
             bindings = <&bt BT_SEL 3>;
             key-positions = <9 10 11>;
+        };
+
+        Copy {
+            bindings = <&kp LC(C)>;
+            key-positions = <18 19 39>;
+        };
+
+        Paste {
+            bindings = <&kp LC(V)>;
+            key-positions = <30 31 39>;
         };
     };
 
@@ -109,10 +119,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB    &kp N1         &kp N2           &kp N3            &kp N4  &kp N5       &kp N6      &kp N7             &kp N8           &kp N9     &kp N0         &kp BSPC
-&kp LSHFT  &kp F6         &kp F7           &kp F8            &kp F9  &kp F12      &kp LEFT    &kp DOWN           &kp UP           &kp RIGHT  &kp PAGE_UP    &kp DEL
-&kp LCTRL  &kp LS(LC(L))  &kp LC(LS(END))  &kp LC(LS(HOME))  &trans  &trans       &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp END    &kp PAGE_DOWN  &kp HOME
-                                           &kp LGUI          &trans  &kp SPACE    &kp RET     &trans             &kp RALT
+&kp TAB    &kp N1         &kp N2           &kp N3            &kp N4        &kp N5         &kp N6      &kp N7             &kp N8           &kp N9     &kp N0         &kp BSPC
+&kp LSHFT  &kp F6         &kp F7           &kp F8            &kp F9        &kp F12        &kp LEFT    &kp DOWN           &kp UP           &kp RIGHT  &kp PAGE_UP    &kp DEL
+&kp LCTRL  &kp LS(LC(L))  &kp LC(LS(END))  &kp LC(LS(HOME))  &kp LS(HOME)  &kp LS(END)    &kp K_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp HOME   &kp PAGE_DOWN  &kp END
+                                           &kp LGUI          &trans        &kp SPACE      &kp RET     &trans             &kp RALT
             >;
         };
 
@@ -129,6 +139,24 @@
 &kp LSHFT  &kp LA(NUMBER_0)  &kp RC(LS(F12))  &trans    &trans    &trans       &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
                                               &kp LGUI  &trans    &kp SPACE    &kp RET    &trans     &kp RALT
             >;
+        };
+
+        layer_3 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &kp LC(V)    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans       &trans  &trans  &trans
+            >;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        Conditional3 {
+            if-layers = <1 2>;
+            then-layer = <3>;
         };
     };
 };
